@@ -18,7 +18,6 @@ export default class DetalheTanque extends Component {
 
     async loadTanque() {
         const token = await AsyncStorage.getItem('token');
-        console.log(token)
         try {
             await fetch(`${baseURL}/tanque`, {
                 method: 'GET',
