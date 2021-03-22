@@ -6,6 +6,7 @@ import { DEV_API } from '@env';
 
 import AsyncStorage from '@react-native-community/async-storage';
 
+
 // SEPARADOR
 const Separator = () => (
     <View style={styles.separator} />
@@ -14,7 +15,7 @@ const Separator = () => (
 export default function Home({ navigation }) {
 
     const [total, setTotal] = useState(0);
-    const [ultRegi, setUltRegi] = useState('Não há registros')
+    const [ultRegi, setUltRegi] = useState('não há registros');
 
     async function TotalTanques() {
         const token = await AsyncStorage.getItem('token');
