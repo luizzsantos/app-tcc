@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import styles from './style';
-import { Text, View, FlatList, ActivityIndicator, StatusBar, TouchableOpacity } from 'react-native';
+import { Text, View, FlatList, ActivityIndicator, StatusBar, TouchableOpacity, Alert } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import AsyncStorage from '@react-native-community/async-storage';
 
 import { DEV_API } from '@env';
 const baseURL = DEV_API;
+
 
 export default class DetalheTanque extends Component {
     constructor(props) {
@@ -73,6 +74,19 @@ export default class DetalheTanque extends Component {
                     </View>
                 )
             } else {
+                function deletaTanque() {
+                    Alert.alert('Excluir Tanque!', 'Deseja mesmo exluir esse tanque?', [
+                        {
+                            text: 'Sim',
+                            onPress() {
+                                console.warn('delete')
+                            }
+                        },
+                        {
+                            text: 'Não'
+                        }
+                    ]);
+                }
                 return (
                     <View style={styles.container}>
                         <StatusBar barStyle='default' backgroundColor="#236084" />
@@ -97,7 +111,7 @@ export default class DetalheTanque extends Component {
                                                 <TouchableOpacity style={styles.editButton} hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}>
                                                     <Icon name="edit" size={20} color="#0d8f45" />
                                                 </TouchableOpacity>
-                                                <TouchableOpacity style={styles.trashButton} hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}>
+                                                <TouchableOpacity onPress={deletaTanque} style={styles.trashButton} hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}>
                                                     <Icon name="trash-2" size={20} color="#cf4040" />
                                                 </TouchableOpacity>
                                                 {item.nome_tanque == '' ? (
@@ -129,7 +143,7 @@ export default class DetalheTanque extends Component {
                                             </View>
                                             <View>
                                                 {item.profundidade > '1.5' ? (
-                                                    <Text style={{ textAlign: 'center', color: 'red' }}>A profundidade do tanque é maior que a de 1.5m.</Text>
+                                                    <Text style={{ textAlign: 'center', color: '#cf4040' }}> <Icon name="alert-triangle" size={15} color="#cf4040" /> A profundidade do tanque é maior que a de 1.5m.</Text>
                                                 ) : (<></>)}
                                             </View>
 

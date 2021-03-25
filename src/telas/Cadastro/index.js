@@ -84,10 +84,10 @@ export default () => {
                     onChangeText={t => setNome(t)}
                 />
 
-                <Text style={styles.label}>Seu senha *</Text>
+                <Text style={styles.label}>Sua senha *</Text>
                 <TextInput
                     style={styles.input}
-                    placeholder="Seu senha..."
+                    placeholder="Sua senha..."
                     placeholderTextColor="#999"
                     autoCorrect={false}
                     value={senha}
@@ -104,10 +104,10 @@ export default () => {
                     onChangeText={t => setCidade(t)}
                 />
 
-                <Text style={styles.label}>Sua Estado *</Text>
+                <Text style={styles.label}>Seu Estado *</Text>
                 <TextInput
                     style={styles.input}
-                    placeholder="Sua estado..."
+                    placeholder="Seu estado..."
                     placeholderTextColor="#999"
                     autoCorrect={false}
                     value={estado}

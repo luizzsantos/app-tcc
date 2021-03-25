@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styles from './style';
 import { Text, View, FlatList, ActivityIndicator, StatusBar, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
+import Icone from 'react-native-vector-icons/MaterialCommunityIcons';
 import AsyncStorage from '@react-native-community/async-storage';
 
 import { DEV_API } from '@env';
@@ -135,18 +136,23 @@ export default class DetalheTanque extends Component {
                                             </View>
                                             <View>
                                                 {item.fase_criacao == 'alevino' ? (
-                                                    <Text style={{ textAlign: 'center', color: 'blue', marginTop: 5, fontSize: 15 }}>
-                                                        Na fase de <Text style={{ fontWeight: 'bold' }}>alevinagem</Text> o ideal é que a alimentação seja feita 6 vezes ao dia.
+                                                    <Text style={{ textAlign: 'center', color: '#004fba', marginTop: 5, fontSize: 15 }}>
+                                                        <Icone name="lightbulb-on-outline" size={15} color="#004fba" /> Na fase de <Text style={{ fontWeight: 'bold' }}>alevinagem</Text> o ideal é que a alimentação seja feita 6 vezes ao dia.
                                                     </Text>
                                                 ) : (<></>)}
                                                 {item.fase_criacao == 'recria' ? (
-                                                    <Text style={{ textAlign: 'center', color: 'blue', marginTop: 5, fontSize: 15 }}>
-                                                        Na fase de <Text style={{ fontWeight: 'bold' }}>recria</Text> o ideal é que a alimentação seja feita 4 vezes ao dia.
+                                                    <Text style={{ textAlign: 'center', color: '#004fba', marginTop: 5, fontSize: 15 }}>
+                                                         <Icone name="lightbulb-on-outline" size={15} color="#004fba" /> Na fase de <Text style={{ fontWeight: 'bold' }}>recria</Text> o ideal é que a alimentação seja feita 4 vezes ao dia.
                                                     </Text>
                                                 ) : (<></>)}
                                                 {item.fase_criacao == 'engorda' ? (
-                                                    <Text style={{ textAlign: 'center', color: 'blue', marginTop: 5, fontSize: 15 }}>
-                                                        Na fase de <Text style={{ fontWeight: 'bold' }}>engorda</Text> o ideal é que a alimentação seja feita 3 vezes ao dia.
+                                                    <Text style={{ textAlign: 'center', color: '#004fba', marginTop: 5, fontSize: 15 }}>
+                                                         <Icone name="lightbulb-on-outline" size={15} color="#004fba" /> Na fase de <Text style={{ fontWeight: 'bold' }}>engorda</Text> o ideal é que a alimentação seja feita 3 vezes ao dia.
+                                                    </Text>
+                                                ) : (<></>)}
+                                                {item.fase_criacao == '' ? (
+                                                    <Text style={{ textAlign: 'center', color: '#cf4040', marginTop: 5, fontSize: 14 }}>
+                                                        <Icon name="alert-triangle" size={15} color="#cf4040" /> Fase de criação do peixe não foi informada.
                                                     </Text>
                                                 ) : (<></>)}
                                             </View>

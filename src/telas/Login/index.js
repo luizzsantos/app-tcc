@@ -28,7 +28,7 @@ export default () => {
                 await AsyncStorage.setItem('token', json.token);
                 Alert.alert(
                     "Bem-vindo!",
-                    `${nome}, o login foi realizado com sucesso!`,
+                    `${nome}, seu login foi realizado com sucesso!`,
                     [
                         {
                             text: "Ok", onPress: () => console.log("ok clicado")

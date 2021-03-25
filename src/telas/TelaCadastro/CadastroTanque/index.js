@@ -25,10 +25,10 @@ export default () => {
             let json = await Api.cadastraTanque(nome_tanque, profundidade, largura, comprimento, tipo_peixe, quant_peixe);
 
             if (json.user_id != '') {
-                if (profundidade > '1.5') {
+                if (profundidade > '1.50') {
                     Alert.alert(
                         "Tanque cadastrado! Mas, atenção.",
-                        "A profundidade do tanque é maior que a de 1.5m. Esse detalhe é fundamental para facilitar o momento de subida da rede, no procedimento de captura (ou colheita) dos peixes.",
+                        "A profundidade do tanque é maior que 1,50m. Esse detalhe é fundamental para facilitar o momento de subida da rede, no procedimento de captura (ou colheita) dos peixes.",
                         [
                             {
                                 text: 'Ok!', onPress: () => console.log("ok clicado")

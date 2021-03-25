@@ -11,7 +11,6 @@ export default () => {
 
     const [tipo_peixe, setTipoPeixe] = useState('');
     const [quant_peixe, setQuantPeixe] = useState('');
-    // const [fase_cultivo, setFaseCultivo] = useState('');
     const [fase_criacao, setFaseCriacao] = useState('');
     const [loading, setLoading] = useState(true);
 
@@ -22,18 +21,34 @@ export default () => {
             let json = await Api.cadastraPeixe(tipo_peixe, quant_peixe, fase_criacao);
 
             if (json.user_id) {
-                Alert.alert(
-                    "Sucesso!",
-                    "Cadastrado realizado com sucesso...",
-                    [
-                        {
-                            text: 'Ok!', onPress: () => console.log("ok clicado")
-                        }
-                    ]
-                );
-                navigation.reset({
-                    routes: [{ name: 'Home' }]
-                });
+                if (fase_criacao == '') {
+                    Alert.alert(
+                        "Cadastro realizado. Mas, atenção!",
+                        "Você não informou a fase de criação do peixe, dessa forma não poderemos sugerir a ração mais adequada para sua criação.",
+                        [
+                            {
+                                text: 'Ok!', onPress: () => console.log("ok clicado")
+                            }
+                        ]
+                    );
+                    navigation.reset({
+                        routes: [{ name: 'Home' }]
+                    });
+                } else {
+                    Alert.alert(
+                        "Sucesso!",
+                        "Cadastrado foi realizado com sucesso.",
+                        [
+                            {
+                                text: 'Ok!', onPress: () => console.log("ok clicado")
+                            }
+                        ]
+                    );
+                    navigation.reset({
+                        routes: [{ name: 'Home' }]
+                    });
+                }
+
             } else {
                 Alert.alert(
                     "Ops!",
@@ -104,18 +119,6 @@ export default () => {
                         onChangeText={setQuantPeixe}
                     />
 
-                    {/* <Text style={styles.label}>Fase de Cultivo:</Text>
-                    <TextInput
-                        style={styles.input}
-                        placeholder='exemplo: Alevino'
-                        placeholderTextColor='#999'
-                        keyboardType={'default'}
-                        autoCapitalize='none'
-                        autoCorrect={false}
-                        value={fase_cultivo}
-                        onChangeText={setFaseCultivo}
-                    /> */}
-
                     <Text style={styles.label}>Fase da criação:</Text>
                     <TextInput
                         style={styles.input}
@@ -137,13 +140,13 @@ export default () => {
                                 </>
 
                             ) : (
-                                    <ActivityIndicator
-                                        style={styles.loadingLogin}
-                                        visible={loading}
-                                        size="small"
-                                        color="#FFF"
-                                    />
-                                )
+                                <ActivityIndicator
+                                    style={styles.loadingLogin}
+                                    visible={loading}
+                                    size="small"
+                                    color="#FFF"
+                                />
+                            )
                             }
                         </View>
                     </TouchableOpacity>

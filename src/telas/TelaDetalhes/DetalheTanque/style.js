@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
     },
     TESTE: {
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
     }
 })
 
