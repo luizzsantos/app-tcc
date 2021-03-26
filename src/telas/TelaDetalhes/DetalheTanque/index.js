@@ -142,8 +142,8 @@ export default class DetalheTanque extends Component {
                                                 <Text style={styles.cardValor}>{item.quant_peixe}</Text>
                                             </View>
                                             <View>
-                                                {item.profundidade > '1.5' ? (
-                                                    <Text style={{ textAlign: 'center', color: '#cf4040' }}> <Icon name="alert-triangle" size={15} color="#cf4040" /> A profundidade do tanque é maior que a de 1.5m.</Text>
+                                                {item.profundidade > '1.50' ? (
+                                                    <Text style={{ textAlign: 'center', color: '#cf4040' }}> <Icon name="alert-triangle" size={15} color="#cf4040" /> A profundidade do tanque é maior que a de 1.50m.</Text>
                                                 ) : (<></>)}
                                             </View>
 
